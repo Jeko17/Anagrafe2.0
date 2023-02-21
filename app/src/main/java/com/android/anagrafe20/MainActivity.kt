@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ListView
-import com.android.anagrafe20.adapter.UserAdapter
+import com.android.anagrafe20.adapters.UserAdapter
 import com.android.anagrafe20.dao.MemoryUserDao
 
 class MainActivity : AppCompatActivity() {

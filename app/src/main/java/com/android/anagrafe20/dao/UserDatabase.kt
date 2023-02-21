@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.android.anagrafe20.entities.User
 
 @Database(version = UserDatabase.VERSION,
-entities = [User::class])
+            entities = [User::class])
 abstract class UserDatabase: RoomDatabase() {
     companion object{
         const val DATABASE_NAME = "anagrafe"

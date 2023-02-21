@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import androidx.room.Room
 import com.android.anagrafe20.dao.MemoryUserDao
+import com.android.anagrafe20.dao.UserDatabase
 import com.android.anagrafe20.entities.User
 import java.util.*
+import java.util.concurrent.Executors
 
 class NewUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +27,11 @@ class NewUserActivity : AppCompatActivity() {
                 findViewById<EditText>(R.id.birthcity_edit).text.toString(),
                 findViewById<EditText>(R.id.birthprovince_edit).text.toString(),
                 findViewById<EditText>(R.id.gender_edit).text.toString())
-            memory.addUser(user)
+
+            Executors.newSingleThreadExecutor().execute{
+                val dao = Room.databaseBuilder(applicationContext, UserDatabase::class.java, UserDatabase.DATABASE_NAME).build()
+                dao.getUserDao().addUser(user)
+            }
 
             Log.d("NewPostActivity", "New Input= ${memory.getAll()}")
             finish()

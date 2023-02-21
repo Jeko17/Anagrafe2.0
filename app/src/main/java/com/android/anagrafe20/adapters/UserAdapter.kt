@@ -1,4 +1,4 @@
-package com.android.anagrafe20.adapter
+package com.android.anagrafe20.adapters
 
 import android.content.Context
 import android.content.Intent
